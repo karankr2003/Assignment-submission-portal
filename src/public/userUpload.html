@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/notyf@3.8.0/notyf.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/notyf@3.8.0/notyf.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Assignment</title>
+  <link rel="stylesheet" href="userUpload.css">
+</head>
+<body>
+  <header class="dashboard-header">
+    <h1>Upload Assignment</h1>
+    <div class="header-actions">
+      <button class="back-btn" onclick="goBack()">Back</button>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <main class="upload-container">
+    <form id="upload-form" class="upload-form">
+      <label for="task">Task Description</label>
+      <textarea id="task" name="task" placeholder="Enter task description here..." required></textarea>
+
+      <label for="file">Upload File</label>
+      <input type="file" id="file" name="file" accept=".pdf,.png,.jpg,.jpeg,.txt" required>
+
+      <label for="admin">Assign to Admin</label>
+      <select id="admin" name="admin" required>
+        <!-- Admins will be dynamically loaded -->
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+
+  <script>
+    function goBack() {
+  window.history.back();
+}
+
+    const notyf = new Notyf();
+
+function showSuccessMessage(message) {
+  notyf.success(message);
+}
+
+function showErrorMessage(message) {
+  notyf.error(message);
+}
+    document.addEventListener('DOMContentLoaded', async () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        showErrorMessage('Please login first.');
+        window.location.href = 'login.html';
+        return;
+      }
+
+      try {
+        const response = await fetch('/user/get-admins', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+
+        const admins = await response.json();
+
+        if (response.ok) {
+          const adminDropdown = document.getElementById('admin');
+          admins.forEach(admin => {
+            const option = document.createElement('option');
+            option.value = admin._id;
+            option.textContent = admin.username;
+            adminDropdown.appendChild(option);
+          });
+        } else {
+          showErrorMessage('Failed to load admins');
+        }
+      } catch (error) {
+        showErrorMessage('Error: ' + error.message);
+      }
+
+      // Handle form submission
+      document.getElementById('upload-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const task = document.getElementById('task').value;
+        const admin = document.getElementById('admin').value;
+        const fileInput = document.getElementById('file');
+        const file = fileInput.files[0];
+
+        if (!file) {
+          showErrorMessage('Please upload a file.');
+          return;
+        }
+
+        try {
+          const formData = new FormData();
+          formData.append('task', task);
+          formData.append('admin', admin);
+          formData.append('file', file);
+
+          const response = await fetch('/user/upload', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+            },
+            body: formData,
+          });
+
+          if (response.ok) {
+            showSuccessMessage('Assignment uploaded successfully');
+            document.getElementById('upload-form').reset(); // Reset the form
+          } else {
+            const errorData = await response.json();
+            showErrorMessage(`Failed to upload: ${errorData.error}`);
+          }
+        } catch (error) {
+          showErrorMessage('Error: ' + error.message);
+        }
+      });
+    });
+
+    function goBack() {
+      window.history.back();
+    }
+
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>

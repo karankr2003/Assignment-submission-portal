@@ -1,0 +1,71 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('https://media.gettyimages.com/id/1134203220/video/soft-background.jpg?s=640x640&k=20&c=pro8BuhzqEjA_lhQSUOlKjFCtlO-6bQIdgq9N-uL9S8=');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  background-color: rgba(18, 7, 7, 0.5); 
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #e92020;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 10px 0 5px;
+  color: #fff;
+}
+
+input, select, button {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #ff022c;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+p {
+  text-align: center;
+  color: #fff;
+}
+
+a {
+  color: #4CAF50;
+}

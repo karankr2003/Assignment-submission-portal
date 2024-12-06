@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/notyf@3.8.0/notyf.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3.8.0/notyf.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Register</h2>
+      <form id="register-form">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <label for="role">Role</label>
+        <select id="role" name="role" required>
+          <option value="user">user</option>
+          <option value="admin">admin</option>
+        </select>
+        <button type="submit">Register</button>
+      </form>
+      <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+    <script>
+      const notyf = new Notyf({
+        duration: 3000,
+        ripple: true,
+      });
+      
+      function showSuccessMessage(message) {
+        notyf.success(message);
+      }
+      
+      function showErrorMessage(message) {
+        notyf.error(message);
+      }
+      
+      document.getElementById('register-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+      
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const role = document.getElementById('role').value;
+      
+        try {
+          const response = await fetch('/user/register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password, role }),
+          });
+      
+          if (response.ok) {
+            const data = await response.json();
+      
+            if (data.token) {
+              showSuccessMessage('Registration successful');
+              // localStorage.setItem('token', data.token); 
+      
+              document.getElementById('register-form').reset();
+            } else {
+              showErrorMessage('Registration failed: No token returned');
+            }
+          } else {
+            const errorData = await response.json();
+            showErrorMessage('Registration failed: ' + (errorData.error || 'Unknown error'));
+          }
+        } catch (error) {
+          showErrorMessage('Error: ' + error.message);
+        }
+      });
+    </script>
+  </body>
+</html>
