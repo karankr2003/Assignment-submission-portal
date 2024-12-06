@@ -11,6 +11,18 @@ The **Assignment Submission Portal** is a web application designed to enable stu
 - **Password Hashing**: bcrypt for secure password storage
 - **File Uploads**: Used for storing submitted assignments
 
+## Database Setup
+   Download the MongoDB installer for Windows from the official [MongoDB Download Center](https://www.mongodb.com/try/download/community).
+   Open a new command prompt window and type:
+    ```bash
+   mongosh
+Create the database:
+ ```bash
+use assignment_portal
+
+MongoDB will switch to the database assignment_portal_db. This database will be created once you insert your first document.
+
+
 ## Installation Instructions
 
 ### Prerequisites
