@@ -13,9 +13,11 @@ The **Assignment Submission Portal** is a web application designed to enable stu
 
 ## Database Setup
 Download the MongoDB installer and install for Windows from the official [MongoDB Download Center](https://www.mongodb.com/try/download/community).
+
 Open a new command prompt window and type:
    ```bash
    mongosh
+
 Create the database:
    ```bash
    use assignment_portal
