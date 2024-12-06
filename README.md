@@ -10,7 +10,6 @@ The **Assignment Submission Portal** is a web application designed to enable stu
 - **Authentication**: JWT (JSON Web Tokens) for secure user login and session management
 - **Password Hashing**: bcrypt for secure password storage
 - **File Uploads**: Used for storing submitted assignments
-- **Optional**: TypeScript (for type safety and improved developer experience)
 
 ## Installation Instructions
 
@@ -86,7 +85,4 @@ The application should now be running locally on http://localhost:5000
 3. Make your changes and commit them (git commit -am 'Add feature').
 4. Push to the branch (git push origin feature-branch).
 5. Create a new pull request.
-
-### License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
