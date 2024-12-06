@@ -20,6 +20,31 @@ Before you begin, ensure that you have the following installed:
 - **MongoDB** (Local instance or MongoDB Atlas)
 - **npm** for managing dependencies
 
+## Database Setup
+
+1. **Download and Install MongoDB:**
+   - Download the MongoDB installer for **Windows** from the official [MongoDB Download Center](https://www.mongodb.com/try/download/community).
+   - Follow the instructions on the MongoDB website to install MongoDB on your system.
+
+2. **Launch MongoDB:**
+   - Open a new command prompt or terminal window.
+   - Start the MongoDB shell by typing the following command:
+     ```bash
+     mongosh
+     ```
+
+3. **Create the Database:**
+   - After entering the MongoDB shell, create the database by typing the following command:
+     ```bash
+     use assignment_portal
+     ```
+   - MongoDB will switch to the `assignment_portal` database. This database will be created automatically when you insert your first document.
+
+By following these steps, you will have MongoDB running and the required database for your project set up.
+
+
+
+
 ### Steps to Set Up Locally
 
 1. Clone the repository:
