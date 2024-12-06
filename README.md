@@ -4,7 +4,7 @@
 The **Assignment Submission Portal** is a web application designed to enable students to submit assignments and allow admins to review, grade, and manage submissions. The portal provides a secure authentication system using **JWT tokens** and includes role-based access for **students** and **admins**. Students can submit their assignments, while admins can view and grade them.
 
 ## Tech Stack
-- **Backend**: Node.js with Express
+- **Backend**: Node.js with Express and TypeScript
 - **Frontend**: HTML, CSS, JavaScript
 - **Database**: MongoDB
 - **Authentication**: JWT (JSON Web Tokens) for secure user login and session management
