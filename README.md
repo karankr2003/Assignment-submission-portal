@@ -43,32 +43,32 @@ POST /accept/reject assignment: Handle an assignment (for admins).
 
 2. Navigate to the project directory:
    ```bash
-cd Assignment-submission-portal
+   cd Assignment-submission-portal
 
 3. Install dependencies:
    ```bash
-npm install
-npm install mongodb
-npm install mongoose
-npm install jsonwebtoken
-npm install bcryptjs
-npm install dotenv
+   npm install
+   npm install mongodb
+   npm install mongoose
+   npm install jsonwebtoken
+   npm install bcryptjs
+   npm install dotenv
 
 4. Development Dependencies:
    ```bash
-npm install typescript --save-dev
-npm install @types/node --save-dev
-npm install @types/express --save-dev
-npm install ts-node --save-dev
-npm install nodemon --save-dev
+   npm install typescript --save-dev
+   npm install @types/node --save-dev
+   npm install @types/express --save-dev
+   npm install ts-node --save-dev
+   npm install nodemon --save-dev
 
 5. Set up environment variables: Create a .env file in the root directory and include the following:
    ```bash
-JWT_SECRET=your_secret_key
+   JWT_SECRET=your_secret_key
 
 6. Start the application:
    ```bash
-npm start
+   npm start
 
 The application should now be running locally on http://localhost:5000
 
