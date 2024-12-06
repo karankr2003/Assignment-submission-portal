@@ -80,17 +80,6 @@ The application should now be running locally on http://localhost:5000
 4. Push to the branch (git push origin feature-branch).
 5. Create a new pull request.
 
-###License
+### License
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-
-### Explanation:
-- The **Introduction** section describes the project and its functionality.
-- **Tech Stack** outlines the technologies used.
-- **Installation Instructions** includes all steps to set up the project locally.
-- **Usage** provides an overview of the functionality from the user's perspective.
-- **API Endpoints** details the available routes.
-- **Contributing** encourages others to contribute to the project.
-- **License** section mentions the license under which the project is distributed.
-
 
