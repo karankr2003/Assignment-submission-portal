@@ -55,25 +55,26 @@ Before you begin, ensure that you have the following installed:
    npm start
 
 The application should now be running locally on http://localhost:5000
+
 ### Usage
 
-**User Registration:** A user can register by providing a username, password, and role (either student or admin).
-**User Login:** Users can log in by providing their credentials, and upon successful login, they will receive a JWT token for authenticated access.
-**Assignment Submission:** Students can submit their assignments via a form. The assignments are saved and can be reviewed by admins.
+   **User Registration:** A user can register by providing a username, password, and role (either student or admin).
+   **User Login:** Users can log in by providing their credentials, and upon successful login, they will receive a JWT token for authenticated access.
+   **Assignment Submission:** Students can submit their assignments via a form. The assignments are saved and can be reviewed by admins.
 **Admin Dashboard:** Admins can view the submitted assignments and handle them.
 
 ### API Endpoints
-**POST /register** :Register a new user (student/admin).
-**POST /login**: Login to the portal and get a JWT token.
-**POST /submit-assignment**: Submit an assignment (for students).
-**GET /assignment**s: View submitted assignments (for admins).
-**POST /accept/reject assignment**: Handle an assignment (for admins).
+   **POST /register** :Register a new user (student/admin).
+   **POST /login**: Login to the portal and get a JWT token.
+   **POST /submit-assignment**: Submit an assignment (for students).
+   **GET /assignment**s: View submitted assignments (for admins).
+   **POST /accept/reject assignment**: Handle an assignment (for admins).
 
 
 ### Contributing
-1. Fork the repository.
-2. Create a new branch (git checkout -b feature-branch).
-3. Make your changes and commit them (git commit -am 'Add feature').
-4. Push to the branch (git push origin feature-branch).
-5. Create a new pull request.
+   1. Fork the repository.
+   2. Create a new branch (git checkout -b feature-branch).
+   3. Make your changes and commit them (git commit -am 'Add feature').
+   4. Push to the branch (git push origin feature-branch).
+   5. Create a new pull request.
 
